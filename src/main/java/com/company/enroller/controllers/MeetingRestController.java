@@ -32,6 +32,18 @@ public class MeetingRestController {
 			return new ResponseEntity<Meeting>(meeting, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public ResponseEntity<?> addMeeting(@RequestBody Meeting meeting) {
+		if (meetingService.findById(meeting.getId()) != null) {
+			return new ResponseEntity("Meeting with ID: " + meeting.getId() + " already exists!",
+					HttpStatus.CONFLICT);				
+		}
+		
+		meetingService.addMeeting(meeting);
+		
+		return new ResponseEntity<Meeting>(meeting, HttpStatus.OK);
+	}
+	
 	
 
 }
