@@ -23,8 +23,8 @@ public class MeetingService {
 		return query.list();
 	}
 
-	public Meeting findByTitle(String title) {
-		return (Meeting) connector.getSession().get(Meeting.class, title);
+	public Meeting findById(Long id) {
+		return (Meeting) connector.getSession().get(Meeting.class, id);
 	}
 
 }
