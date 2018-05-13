@@ -55,22 +55,25 @@ public class ParticipantRestController {
 		participantService.removeParticipant(participant);
 		
 		return new ResponseEntity<Participant>(participant, HttpStatus.OK);
-    	
     }
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	public ResponseEntity<?> modifyParticipant(@PathVariable("id") String login, @RequestBody Participant newParticipant) {
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> updateParticipant(@PathVariable("id") String login, @RequestBody Participant updatedParticipant) {
 		Participant participant = participantService.findByLogin(login);
 		if (participant == null ) {
 			return new ResponseEntity("Participant with login: " + login +  " doesn't exist!",
 					HttpStatus.NOT_FOUND);
 		}
 		
-		participant.setPassword(newParticipant.getPassword());
-		participantService.modifyParticipant(participant);
+		//body?!
+		
+		participant.setPassword(updatedParticipant.getPassword());
+		participantService.updateParticipant(participant);
 		
 		return new ResponseEntity<Participant>(participant, HttpStatus.OK);
 	}
+	
+	
 	
 	
 
