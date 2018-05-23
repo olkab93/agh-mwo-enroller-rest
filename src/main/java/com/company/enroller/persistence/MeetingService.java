@@ -27,4 +27,12 @@ public class MeetingService {
 		return (Meeting) connector.getSession().get(Meeting.class, id);
 	}
 
+	public void addMeeting(Meeting meeting) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void removeMeeting(Meeting meeting) {
+		// TODO
+	}
+
 }
