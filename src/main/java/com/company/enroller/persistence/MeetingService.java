@@ -27,11 +27,13 @@ public class MeetingService {
 	}
 
 	public void addMeeting(Meeting meeting) {
-		// TODO Auto-generated method stub
-		
+		Transaction transaction = connector.getSession().beginTransaction();
+		connector.getSession().save(meeting);
+		transaction.commit();
 	}
-	public void removeMeeting(Meeting meeting) {
-		// TODO
-	}
+	
+//	public void removeMeeting(Meeting meeting) {
+//		// TODO
+//	}
 
 }

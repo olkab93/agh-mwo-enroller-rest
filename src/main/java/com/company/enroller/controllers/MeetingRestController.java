@@ -44,18 +44,18 @@ public class MeetingRestController {
 		return new ResponseEntity<Meeting>(meeting, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<?> removeMeeting(@PathVariable("id") Long id) {
-		Meeting meeting = meetingService.findById(id);
-		if (meeting == null) {
-			return new ResponseEntity("Meeting with ID: " + id + " doesn't exist!",
-					HttpStatus.NOT_FOUND);
-		}
-		
-		meetingService.removeMeeting(meeting);
-		
-		return new ResponseEntity<Meeting>(meeting, HttpStatus.OK);
-	}
+//	@RequestMapping(value="/{id}", method = RequestMethod.DELETE)
+//	public ResponseEntity<?> removeMeeting(@PathVariable("id") Long id) {
+//		Meeting meeting = meetingService.findById(id);
+//		if (meeting == null) {
+//			return new ResponseEntity("Meeting with ID: " + id + " doesn't exist!",
+//					HttpStatus.NOT_FOUND);
+//		}
+//		
+//		meetingService.removeMeeting(meeting);
+//		
+//		return new ResponseEntity<Meeting>(meeting, HttpStatus.OK);
+//	}
 	
 
 }
